@@ -1,0 +1,35 @@
+@model Hobby
+<div>
+    <h1>
+    @Model.Name
+    </h1>
+    <p>Description: @Model.Description</p>       
+    </p>
+    @* pass this views model to the partial view so that it has access to all the same information *@
+</div>
+<div class="row">
+    <div class="col-6">
+        <h4>@Model.Name Enthusiasts</h4>
+        <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Proficiency</th>
+        </tr> 
+        @foreach (Enthusiast enthusiast in Model.Enthusiasts)
+        {
+            <tr>
+                <td>@enthusiast.User.FirstName</td>
+                <td>@enthusiast.Proficiency</td>
+            </tr>
+        }
+        </table>
+    </div>
+    <div class="col-6">
+        <h4>Become an Enthusiast!</h4>
+        @{
+            Enthusiast newEnthusiast = new Enthusiast();
+            newEnthusiast.HobbyId = Model.HobbyId;
+        }
+        <partial name="_Proficiency" model="@newEnthusiast"></partial>
+    </div>
+</div>

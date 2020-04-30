@@ -1,0 +1,24 @@
+@model List<Hobby>
+
+<h1>Hobbies</h1>
+<div>
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Enthusiasts</th>
+  </tr>
+  @foreach (Hobby hobby in Model)
+  {
+      int count = hobby.Enthusiasts.Count();
+  <tr>
+    <td><a asp-controller="BeltExam"
+              asp-action="Details"
+              asp-route-hobbyId="@hobby.HobbyId">
+              @hobby.Name</a></td>
+    <td>@count</td>
+  </tr>
+  }
+</table>
+
+<a asp-controller="BeltExam" asp-action="New">New Hobby</a>
+</div>

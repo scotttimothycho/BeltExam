@@ -1,0 +1,21 @@
+@model Enthusiast
+
+<form asp-controller="BeltExam" asp-action="AddHobby" 
+        asp-route-hobbyId="@ViewBag.HobbyId" 
+        method="POST">
+    <select asp-for="Proficiency">
+        <option value="Novice">
+            Novice
+        </option>
+        <option value="Intermediate">
+            Intermediate
+        </option>
+        <option value="Expert">
+            Expert
+        </option>
+    </select>
+    <a asp-controller="BeltExam" asp-action="Hobby" class="btn btn-primary">Cancel</a>
+    <button class="btn btn-success">
+        Submit
+    </button> 
+</form>

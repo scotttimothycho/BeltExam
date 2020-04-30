@@ -1,0 +1,38 @@
+@model Hobby
+
+<div class="container mt-5">
+    <form asp-controller="BeltExam" asp-action="Create" method="POST">
+        <fieldset class="border p-3">
+        <legend class="w-auto">
+            Create a Hobby
+        </legend>
+
+            <div class="form-group row">
+                <label asp-for="Name" class="col-sm-3 col-form-label">
+                    Name 
+                    <span asp-validation-for="Name" class="text-danger font-weight-bold">
+                    </span>
+                </label>
+                <div class="col-sm-9">
+                    <input asp-for="Name" class="form-control">
+                </div>        
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Description" class="col-sm-3 col-form-label">
+                Description 
+                <span asp-validation-for="Description" class="text-danger font-weight-bold">
+                </span>
+                </label>
+                <div class="col-sm-9">
+                <textarea asp-for="Description" class="form-control" rows="13"></textarea>
+                </div>
+            </div>
+            <div class="text-right">
+                <a asp-controller="BeltExam" asp-action="Hobby" class="btn btn-primary">Cancel</a>
+                <button class="btn btn-success">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+   
